@@ -16,6 +16,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'build'),
     filename: 'js/[name].js',
+    assetModuleFilename: 'images/[name].[ext]',
     clean: true,
   },
 
@@ -37,6 +38,11 @@ module.exports = {
       {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
+
+      {
+        test: /\.(png|jpg|gif|svg|eot|ttf|woff|jpeg)$/,
+        type: 'asset/resource',
       },
     ],
   },
